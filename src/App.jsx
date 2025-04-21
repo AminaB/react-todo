@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+const todos=[
+    {id:"1", title:"dev", description:"dev the app"},
+    {id:"2", title:"test", description:"test the app"},
+    {id:"3", title:"deploy", description:"deploy the app"},
+];
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+
+          <table className="table">
+              <thead>
+              <tr>
+                  <th>id</th>
+                  <th>title</th>
+                  <th>description</th>
+              </tr>
+              </thead>
+              <tbody>
+              {todos.map((todo)=>
+                  (
+                      <tr>
+                          <td>{todo.id}</td>
+                          <td>{todo.title}</td>
+                          <td>{todo.description}</td>
+                      </tr>
+                  )
+
+              )}
+              </tbody>
+          </table>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
