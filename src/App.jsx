@@ -2,9 +2,9 @@ import './App.css'
 
 function App() {
 const todos=[
-    {id:"1", title:"dev", description:"dev the app"},
-    {id:"2", title:"test", description:"test the app"},
-    {id:"3", title:"deploy", description:"deploy the app"},
+    {id:"1", title:"dev", description:"dev the app", completed:false},
+    {id:"2", title:"test", description:"test the app", completed:false},
+    {id:"3", title:"deploy", description:"deploy the app", completed:false},
 ];
   return (
     <>
@@ -16,6 +16,7 @@ const todos=[
                   <th>id</th>
                   <th>title</th>
                   <th>description</th>
+                  <th>status</th>
               </tr>
               </thead>
               <tbody>
@@ -25,6 +26,11 @@ const todos=[
                           <td>{todo.id}</td>
                           <td>{todo.title}</td>
                           <td>{todo.description}</td>
+                          {todo.completed
+                              ? <td>Done</td>
+                              :<td className="bg-primary">TO DO</td>
+                          }
+
                       </tr>
                   )
 
