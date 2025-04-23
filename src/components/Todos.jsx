@@ -22,6 +22,7 @@ function Todos(){
 
     return (
         <>
+            <h2 className="mb-2">ToDo List</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -50,7 +51,7 @@ function Todos(){
             </table>
             <div className="container mt-5">
                 <div className="card p-4 shadow-sm">
-                    <h3 className="mb-3">To-Do List</h3>
+                    <h3 className="mb-3">Add Todo</h3>
                     <form onSubmit={createTodo} className="d-flex gap-2">
                         <input
                             type="text"
