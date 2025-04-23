@@ -16,6 +16,7 @@ function Todos(){
         const todo={id:todos.length+1, title:title, description:description, completed:false};
         setTodos([...todos,todo]);
         setTitle("");
+        setDescription("");
 
     }
 
