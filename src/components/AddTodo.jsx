@@ -25,7 +25,7 @@ function AddTodo({handleAddTodo}){
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <input
-                        type="text"
+                        type="textarea"
                         className="form-control"
                         placeholder="Todo Description"
                         value={description}
