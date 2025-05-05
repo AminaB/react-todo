@@ -1,27 +1,18 @@
-import {useState} from "react";
 
 function SelectStatus({todo, handleSelect}){
-    const [value, setValue] = useState(todo.status);
     const allStatus=["TODO", "DONE"];
-    const handleStatusSelect = (newStatus) => {
-        setValue(newStatus);
-        handleSelect(todo.id, newStatus); // Callback vers le parent
+    const handleChange = (e) => {
+        handleSelect(todo, e.target.value);
     };
 
     return (
-        <>
-            <select
-                value={value}
-                onChange={e => handleStatusSelect(e.target.value)}
-            >
-                <option value={value}>{value}</option>
-                {allStatus.filter((status)=>value!==status).map(status => (
-                    <option key={status} value={status}>
-                        {status}
-                    </option>
-                ))}
-            </select>
-        </>
+        <select value={todo.status} onChange={handleChange}>
+            {allStatus.map(status => (
+                <option key={status} value={status}>
+                    {status}
+                </option>
+            ))}
+        </select>
     );
 
 }

@@ -21,11 +21,14 @@ function Todos(){
     }
     let handleSelect=(todo, newStatus)=>{
         setTodos(todos.map(t=>
-        {return t.id===todo.id
+        {
+            console.log(newStatus)
+            console.log(todo)
+            console.log(t)
+            return t.id===todo.id
             ? {...t, status: newStatus}
             : t
         }));
-        console.log(todos);
     };
     return (
         <>
@@ -46,11 +49,8 @@ function Todos(){
                             <td>{todo.id}</td>
                             <td>{todo.title}</td>
                             <td>{todo.description}</td>
+                            <td className="bg-primary"><SelectStatus todo={todo} handleSelect={handleSelect}/></td>
 
-                            {todo.completed
-                                ? <td>Done</td>
-                                : <td className="bg-primary"><SelectStatus todo={todo} handleSelect={handleSelect}/></td>
-                            }
 
                         </tr>
                     )
